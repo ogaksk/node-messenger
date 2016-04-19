@@ -3,7 +3,7 @@ var express = require('express'),
     router = express.Router(),
     local = require('../config/local.js');
 
-var token = local.fbAccessToken,
+var fbtoken = local.fbAccessToken,
     validation_token = local.validationToken;
 
 function sendTextMessage(sender, text) {
@@ -12,7 +12,7 @@ function sendTextMessage(sender, text) {
   }
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token:token},
+    qs: {access_token : fbtoken},
     method: 'POST',
     json: {
       recipient: {id:sender},
