@@ -1,7 +1,10 @@
 var express = require('express'),
     request = require('request'),
     router = express.Router(),
-    token = "<your-access-token>";
+    local = require('../config/local.js');
+
+var token = local.fbAccessToken,
+    validation_token = local.validationToken;
 
 function sendTextMessage(sender, text) {
   var messageData = {
@@ -25,7 +28,7 @@ function sendTextMessage(sender, text) {
 }
 
 router.get('/', function(req, res, next) {
-  if (req.query['hub.verify_token'] === 'validation') {
+  if (req.query['hub.verify_token'] === validation_token) {
     res.send(req.query['hub.challenge']);
   }
   res.send('Error, wrong validation token');
