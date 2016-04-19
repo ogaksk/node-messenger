@@ -25,7 +25,7 @@ function sendTextMessage(sender, text) {
 }
 
 router.get('/', function(req, res, next) {
-  if (req.query['hub.verify_token'] === '<validation_token>') {
+  if (req.query['hub.verify_token'] === 'validation') {
     res.send(req.query['hub.challenge']);
   }
   res.send('Error, wrong validation token');
