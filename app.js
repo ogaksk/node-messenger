@@ -10,6 +10,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+//memo http://qiita.com/yosukesannohe/items/918c643a8efd2de1be06
+app.use(express.static(path.join(__dirname, 'public')));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -20,7 +23,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', routes);
 app.use('/users', users);
