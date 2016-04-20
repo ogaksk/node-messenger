@@ -29,7 +29,7 @@ function sendTextMessage(sender, text) {
 
 router.get('/', function(req, res, next) {
   if (req.query['hub.verify_token'] === validation_token) {
-    res.send("varidation");
+    res.send(req.query['hub.challenge']);
   }
   res.send("error");
 });
