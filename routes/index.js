@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
   if (req.query['hub.verify_token'] === validation_token) {
     res.send("ok");
   }
-  res.send(req.query);
+  res.send("ok");
 });
 
 router.post('/', function(req, res, next) {
