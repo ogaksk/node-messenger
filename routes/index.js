@@ -8,8 +8,8 @@ var fbtoken = local.fbAccessToken,
 
 function sendTextMessage(sender, text) {
   var messageData = {
-    // text:text
-    text:"ハロワ、行けよ！"
+    text:text
+    // text:"ハロワ、行けよ！"
   }
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -45,6 +45,8 @@ router.post('/', function(req, res, next) {
       text = event.message.text;
 
       // アレコレしたいことをどうぞ
+      // sendTextMessage(sender, text.substring(0, 200));
+      text = JSON.parse(req);
       sendTextMessage(sender, text.substring(0, 200));
     }
   }
