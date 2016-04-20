@@ -29,9 +29,9 @@ function sendTextMessage(sender, text) {
 
 router.get('/', function(req, res, next) {
   if (req.query['hub.verify_token'] === validation_token) {
-    res.send("ok");
+    res.send("varidation");
   }
-  res.send("ok");
+  res.send("error");
 });
 
 router.post('/', function(req, res, next) {
