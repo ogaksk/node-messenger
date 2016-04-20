@@ -28,10 +28,10 @@ function sendTextMessage(sender, text) {
 }
 
 router.get('/', function(req, res, next) {
-  if (req.query['hub.verify_token'] === 'validation') {
+  if (req.query['hub.verify_token'] === validation_token) {
     res.send(req.query[validation_token]);
   }
-  res.send('Error, wrong validation token');
+  res.send(req.query);
 });
 
 router.post('/', function(req, res, next) {
