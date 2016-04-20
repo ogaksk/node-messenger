@@ -29,7 +29,6 @@ function sendTextMessage(sender, text) {
 
 router.get('/', function(req, res, next) {
   if (req.query['hub.verify_token'] === validation_token) {
-    conole.log(validation_token)
     res.send("ok");
   }
   res.send("ok");
