@@ -32,7 +32,6 @@ router.get('/', function(req, res, next) {
     conole.log(validation_token)
     res.send("ok");
   }
-  conole.log(validation_token)
   res.send("ok");
 });
 
